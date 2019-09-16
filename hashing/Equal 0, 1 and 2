@@ -1,0 +1,61 @@
+Given a string which consists of only 0, 1 or 2s, count the number of substring which have equal number of 0s, 1s and 2s.
+
+Examples:
+
+Input  :  str = “0102010”
+Output :  2
+Explanation : Substring str[2, 4] = “102” and 
+              substring str[4, 6] = “201” has 
+              equal number of 0, 1 and 2
+
+Input : str = "102100211"
+Output : 5
+ 
+
+Input:
+
+The first line of input contains a single integer T denoting the number of test cases. Then T test cases follow. 
+Each test case consists of one line. The line contains a string of 0's, 1's and 2's.
+
+Output:
+
+Corresponding to each test case, in a new line, print the count all possible substrings that have same number of 0s, 1s and 2s.
+
+Constraints:
+
+1 ≤ T ≤ 100
+1 ≤ string length ≤ 1000
+
+Example:
+
+Input
+2
+0102010
+102100211
+
+Output
+2
+5
+
+
+
+def equal_012(s):
+    n=len(s)
+    count=0
+    for i in range(n-1):
+        for j in range(i+1,n):
+            hash=[0,0,0]
+            for k in range(i,j+1):
+                if s[k]=='0':
+                    hash[0]+=1
+                elif s[k]=='1':
+                    hash[1]+=1
+                else:
+                    hash[2]+=1
+            if hash[0]==hash[1]==hash[2]:
+                count+=1
+    return count
+t=int(input())
+for i in range(t):
+    s=input()
+    print(equal_012(s))
