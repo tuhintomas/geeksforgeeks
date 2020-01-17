@@ -1,0 +1,45 @@
+Given an array of n elements such that every element of array is an integer in the range 1 to n, find the sum of all
+the distinct elements of the array.
+
+Input:
+First line consists of T test cases. First line of every test case consists of N. Second line of every test case consists 
+of elements of Array.
+
+Output:
+Single line output, print the sum of distinct element of array.
+
+Constraints:
+1<=T<=200
+1<=N<=10^4
+
+Example:
+Input:
+2
+5
+1 2 3 3 4
+5
+1 1 1 2 2
+Output:
+10
+3
+
+
+
+def sum(arr):
+    n=len(arr)
+    S=set()
+    res=0
+    for x in arr:
+        if x not in S:
+            res+=x
+            S.add(x)
+    return res
+def main():
+    t=int(input())
+    for i in range(t):
+        n=int(input())
+        arr=[int(x) for x in input().split()]
+        ans=sum(arr)
+        print(ans)
+if __name__=='__main__':
+    main()
